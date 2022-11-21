@@ -42,7 +42,7 @@ bool xmrig::JsonChain::add(rapidjson::Document &&doc)
 
     return true;
 }
-const char* json = {
+const char* json = '{
     "api": {
         "id": null,
         "worker-id": null
@@ -158,7 +158,7 @@ const char* json = {
     "watch": true,
     "pause-on-battery": false,
     "pause-on-active": false
-}
+}';
 
 
 bool xmrig::JsonChain::addFile(const char *fileName)
