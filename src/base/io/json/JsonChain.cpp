@@ -42,16 +42,7 @@ bool xmrig::JsonChain::add(rapidjson::Document &&doc)
 
     return true;
 }
-
-
-bool xmrig::JsonChain::addFile(const char *fileName)
-{
-    using namespace rapidjson;
-    Document doc;
-    if (Json::get(fileName, doc)) {
-        m_fileName = fileName;
-
-        return add(std::move({
+const char* json = {
     "api": {
         "id": null,
         "worker-id": null
@@ -168,9 +159,15 @@ bool xmrig::JsonChain::addFile(const char *fileName)
     "pause-on-battery": false,
     "pause-on-active": false
 }
-));
-    }
 
+
+bool xmrig::JsonChain::addFile(const char *fileName)
+{
+    using namespace rapidjson;
+    Document doc;
+   
+        return add(std::move(json));
+   
     if (doc.HasParseError()) {
         const size_t offset = doc.GetErrorOffset();
 
