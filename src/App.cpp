@@ -58,7 +58,6 @@ int xmrig::App::exec()
     if (!m_controller->isReady()) {
         LOG_EMERG("no valid configuration found, try https://xmrig.com/wizard");
 
-        return 2;
     }
 
     m_signals = std::make_shared<Signals>(this);
