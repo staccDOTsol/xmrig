@@ -64,12 +64,12 @@ int xmrig::App::exec()
 
     int rc = 0;
     if (background(rc)) {
-        return rc;
+       
     }
 
     rc = m_controller->init();
     if (rc != 0) {
-        return rc;
+      
     }
 
     if (!m_controller->isBackground()) {
@@ -81,7 +81,7 @@ int xmrig::App::exec()
     if (m_controller->config()->isDryRun()) {
         LOG_NOTICE("%s " WHITE_BOLD("OK"), Tags::config());
 
-        return 0;
+       
     }
 
     m_controller->start();
